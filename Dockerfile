@@ -1,6 +1,6 @@
-FROM strapi/strapi
+FROM strapi/base
 
-WORKDIR /srv/app
+WORKDIR /opt/app
 
 COPY ./package.json ./
 
@@ -12,4 +12,8 @@ COPY . .
 
 ENV NODE_ENV production
 
+RUN yarn build
+
 EXPOSE 1337
+
+CMD ["yarn", "start"]
