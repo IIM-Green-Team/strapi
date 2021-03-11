@@ -1,10 +1,12 @@
-FROM strapi/base:14
+FROM strapi/strapi:3.5.3
 
 WORKDIR /opt/app
 
 COPY ./package.json ./
 
 COPY ./yarn.lock ./
+
+RUN yarn global add strapi@3.5.3
 
 RUN yarn install
 
